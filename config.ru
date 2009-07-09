@@ -1,4 +1,14 @@
-require 'rubygems'
+# stdlib
+require 'net/http'
+require 'net/https'
+require 'net/smtp'
+require 'socket'
+require 'timeout'
+require 'xmlrpc/client'
+require 'openssl'
+require 'cgi'
+
+# additional gems
 require 'sinatra'
 require 'json'
 
