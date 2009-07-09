@@ -32,7 +32,9 @@ post '/' do
     req = Net::HTTP::Post.new(url.path)
     req.basic_auth '981b3fa74415cfd453f0113171770650ebd531df', 'x'
     req.body = changeset_xml
+    req.set_content_type('application/xml')
+    Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }  
   end
-  
+
   "Yay!"  
 end
