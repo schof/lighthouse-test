@@ -1,5 +1,8 @@
-get '/' do
-  'Hello Sinatra!'
+# get '/' do
+#   'Hello Sinatra!'
+# end
+get '/env' do
+  ENV.inspect
 end
 
 post '/' do
@@ -30,9 +33,10 @@ post '/' do
     account = "http://spree.lighthouseapp.com"
     url = URI.parse('%s/projects/%d/changesets.xml' % [account, '33308'])
     req = Net::HTTP::Post.new(url.path)
+puts ">>> #{ENV.inspect}"    
     req.basic_auth ENV['LIGHTHOUSE_TOKEN'], 'x'
     req.body = changeset_xml
-    req.set_content_type('application/xml')
+puts ">>> " +   req.set_content_type('application/xml')
   end
   
   "Yay!"  
