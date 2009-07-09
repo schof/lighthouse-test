@@ -1,8 +1,8 @@
 # get '/' do
 #   'Hello Sinatra!'
 # end
-get '/env' do
-  ENV.inspect
+get '/token' do
+  ENV['LIGHTHOUSE_TOKEN']
 end
 
 post '/' do
