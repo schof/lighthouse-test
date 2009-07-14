@@ -28,7 +28,7 @@ post '/' do
     XML
     
     #account = "http://spree.lighthouseapp.com"
-    account = "http://192.168.1.5"
+    account = "http://71.191.39.45:9292"
     url = URI.parse('%s/projects/%d/changesets.xml' % [account, '33308'])
     #req = Net::HTTP::Post.new(url.path)
 req = Net::HTTP::Post.new(account)
