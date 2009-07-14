@@ -27,12 +27,10 @@ post '/' do
       </changeset>
     XML
     
-    #account = "http://spree.lighthouseapp.com"
-    account = "http://71.191.39.45:9292"
+    account = "http://spree.lighthouseapp.com"
     url = URI.parse('%s/projects/%d/changesets.xml' % [account, '33308'])
-    #req = Net::HTTP::Post.new(url.path)
-req = Net::HTTP::Post.new(account)
-    req.basic_auth '981b3fa74415cfd453f0113171770650ebd531df', 'x'
+    req = Net::HTTP::Post.new(url.path)
+    req.basic_auth '993d2d93c587d0c212167a861a3febb3da76bc07', 'x'
     req.body = changeset_xml
     req.set_content_type('application/xml')
     Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }  
