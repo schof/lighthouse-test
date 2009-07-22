@@ -27,10 +27,10 @@ post '/' do
       </changeset>
     XML
     
-    account = "http://spree.lighthouseapp.com"
+    account = "http://#{ENV['LIGHTHOUSE_PROJECT']}.lighthouseapp.com"
     url = URI.parse('%s/projects/%d/changesets.xml' % [account, '33308'])
     req = Net::HTTP::Post.new(url.path)
-    req.basic_auth '993d2d93c587d0c212167a861a3febb3da76bc07', 'x'
+    req.basic_auth "#{ENV['LIGHTHOUSE_TOKEN']}", 'x'
     req.body = changeset_xml
     req.set_content_type('application/xml')
     Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }  
