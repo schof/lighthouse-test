@@ -14,12 +14,12 @@ post '/' do
     modified = commit['modified'].map { |f| ['M', f] }
     diff = YAML.dump(added + removed + modified)
 
+    # filter out an LH ticket commands (we're only going to allow certain operations through commit msgs)
+    commit['message'].gsub(/\[#[^]]*\]/, '')
+
     title = "Changeset [%s] by %s" % [commit_id, commit['author']['name']]
     body = "#{commit['message']}\n#{commit['url']}"
-    
-    # filter out an LH ticket commands (we're only going to allow certain operations through commit msgs)
-    body.gsub(/\[#[^]]*\]/, '')
-    
+        
     changeset_xml = <<-XML.strip
       <changeset>
       <title>#{CGI.escapeHTML(title)}</title>
