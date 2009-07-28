@@ -11,6 +11,7 @@ require 'cgi'
 # additional gems
 require 'sinatra'
 require 'json'
+require 'lighthouse'
 
 Sinatra::Application.set(
   :run => false,
