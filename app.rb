@@ -47,7 +47,7 @@ post '/' do
     project = Lighthouse::Project.find(ENV['LIGHTHOUSE_PROJECT'])
     
     ticket = Lighthouse::Ticket.find(ticket_id, :params => {:project_id => ENV['LIGHTHOUSE_PROJECT']})
-    next unless ticket and %w{open reopened hold stalled}.include?(ticket.state)
+    next unless ticket and %w{new open reopened hold stalled}.include?(ticket.state)
     ticket.state = "patched"
     ticket.save
   end
