@@ -20,7 +20,7 @@ post '/' do
     commit['message'] = commit['message'].gsub(/\[#[^]]*\]/, '')
 
     title = "Changeset [%s] by %s" % [commit_id, commit['author']['name']]
-    body = "#{commit['message']}\n#{commit['url']}\n#[#{ticket_id}]"
+    body = "#{commit['message']}\n#{commit['url']}\n[##{ticket_id}]"
         
     changeset_xml = <<-XML.strip
       <changeset>
