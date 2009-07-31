@@ -56,9 +56,6 @@ post '/' do
   "Yay!"  
 end
 
-error do
-  Rack::HoptoadNotifier.call request.env
-end
 
 
 
