@@ -1,3 +1,4 @@
 sinatra --version 0.9.2
 json --version 1.1.4
 Caged-lighthouse-api --version 1.0.0 --source http://gems.github.com
+rack_hoptoad --version 0.0.3

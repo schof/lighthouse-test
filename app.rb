@@ -1,5 +1,6 @@
 get '/' do
-  'Hello Sinatra!'
+  raise StandardError, 'Holla Rack'  
+  #'Hello Sinatra!'
 end
 
 post '/' do
@@ -54,5 +55,10 @@ post '/' do
 
   "Yay!"  
 end
+
+error do
+  Rack::HoptoadNotifier.call request.env
+end
+
 
 

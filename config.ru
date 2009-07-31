@@ -12,11 +12,15 @@ require 'cgi'
 require 'sinatra'
 require 'json'
 require 'lighthouse'
+require 'rack_hoptoad'
 
 Sinatra::Application.set(
   :run => false,
   :environment => :production
 )
+
+
+use Rack::HoptoadNotifier, 'fc915153f36d08fc33aa4b9d6cc7382e'
 
 require 'app.rb'
 run Sinatra::Application
