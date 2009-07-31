@@ -1,8 +1,7 @@
 enable :raise_errors
 
 get '/' do
-  raise StandardError, 'Holla Rack'  
-  #'Hello Sinatra!'
+  'Spree patch monitor is online.'
 end
 
 post '/' do
