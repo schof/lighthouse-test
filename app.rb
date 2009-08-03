@@ -1,5 +1,14 @@
 enable :raise_errors
 
+configure do
+  if File.exist?("./config.yml")
+    yaml = YAML.load_file("./config.yml")
+    ENV['LIGHTHOUSE_ACCOUNT'] = yaml['account']
+    ENV['LIGHTHOUSE_TOKEN'] = yaml['token']
+    ENV['LIGHTHOUSE_PROJECT'] = yaml['project']
+  end
+end
+
 get '/' do
   'Spree patch monitor is online.'
 end
